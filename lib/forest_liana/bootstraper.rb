@@ -43,7 +43,7 @@ module ForestLiana
     end
 
     def analyze_model?(model)
-      return model && model.table_exists? && !SchemaUtils.habtm?(model) &&
+      model && model.table_exists? && !SchemaUtils.habtm?(model) &&
         SchemaUtils.model_included?(model)
     end
 
