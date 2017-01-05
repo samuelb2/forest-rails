@@ -65,10 +65,8 @@ module ForestLiana
         force_utf8_attributes_encoding(json['data'])
       end
 
-      if json['included']
-        json['included'].each do |association|
-          force_utf8_attributes_encoding(association)
-        end
+      json['included'].try(:each) do |association|
+        force_utf8_attributes_encoding(association)
       end
 
       json
